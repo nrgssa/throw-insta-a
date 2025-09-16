@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة تكلفة المتابعين</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f8fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1da1f2;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #1da1f2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0d8bd9;
+        }
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            display: none;
+        }
+        .result h3 {
+            margin-top: 0;
+            color: #1da1f2;
+        }
+        .price-per-thousand {
+            background-color: #e8f5fe;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .total-price {
+            background-color: #d1e7dd;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #657786;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>حاسبة تكلفة المتابعين</h1>
+        
+        <div class="input-group">
+            <label for="followers">عدد المتابعين:</label>
+            <input type="number" id="followers" placeholder="أدخل عدد المتابعين" min="0">
+        </div>
+        
+        <button onclick="calculateCost()">احسب التكلفة</button>
+        
+        <div id="result" class="result">
+            <div class="price-per-thousand">
+                <h3>سعر كل 1000 متابع:</h3>
+                <p id="per-thousand">3,500 دينار عراقي</p>
+            </div>
+            
+            <div class="total-price">
+                <h3>التكلفة الإجمالية:</h3>
+                <p id="total-cost">0 دينار عراقي</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>سعر كل 1000 متابع: 3,500 دينار عراقي</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateCost() {
+            // الحصول على عدد المتابعين من حقل الإدخال
+            const followersInput = document.getElementById('followers');
+            const followers = parseInt(followersInput.value);
+            
+            // التحقق من صحة المدخلات
+            if (isNaN(followers) || followers < 0) {
+                alert('يرجى إدخال عدد صحيح صحيح للمتابعين');
+                return;
+            }
+            
+            // حساب التكلفة
+            const pricePerThousand = 3500;
+            const cost = (followers / 1000) * pricePerThousand;
+// عرض النتيجة
+            const totalCostElement = document.getElementById('total-cost');
+            totalCostElement.textContent = cost.toLocaleString('ar-IQ') + ' دينار عراقي';
+            
+            // إظهار قسم النتائج
+            const resultElement = document.getElementById('result');
+            resultElement.style.display = 'block';
+        }
+        
+        // إضافة إمكانية الضغط على Enter لحساب التكلفة
+        document.getElementById('followers').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                calculateCost();
+            }
+        });
+    </script>
+</body>
+</html>

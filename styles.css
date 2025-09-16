@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+font-family: "Poppins",serif;
+}
+
+body{
+    background-color: white;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+.navigation ul{
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+}
+
+.navigation a{
+    text-decoration: none;
+    color: #000;
+}
+
+.navigation a:hover{
+    color: cyan;
+}
+
+hr{
+    opacity: 30%;
+}
+.aboutme {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem auto;
+    max-width: 1200px;
+    gap: 10rem;
+}
+.textcontainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.texttitle{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 2rem;
+}
+.aboutname{
+    color: aqua;
+}
+.abouttitle {
+    color: aquamarine;
+}
+.aboutmepar {
+    text-align: justify;
+    color: rgba(red, green, blue, alpha);
+}
+
+   .Facebookthrow{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 2rem;
+   }
