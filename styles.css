@@ -69,6 +69,22 @@ hr{
 .aboutmepar {
     text-align: justify;
     color: rgba(red, green, blue, alpha);
+    
+}
+.Instagramthrow{
+    display: flex;
+align-items: center;
+gap: 4px;
+font-size: 2rem;
+color: aquamarine;
+
+}
+.TikTokThrow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 2rem;
+    color: aqua;
 }
 
    .Facebookthrow{
